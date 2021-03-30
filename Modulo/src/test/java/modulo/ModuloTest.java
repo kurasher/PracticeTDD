@@ -8,5 +8,6 @@ public class ModuloTest {
     public void testFirst2Digits(){
         Modulo modulo = new Modulo();
         assertEquals(20, modulo.getFirst2Digits(2021));
+        assertEquals(21, modulo.getLast2Digits(2021));
     }
 }
