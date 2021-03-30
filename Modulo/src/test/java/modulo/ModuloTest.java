@@ -9,5 +9,7 @@ public class ModuloTest {
         Modulo modulo = new Modulo();
         assertEquals(20, modulo.getFirst2Digits(2021));
         assertEquals(21, modulo.getLast2Digits(2021));
+        assertEquals(4, modulo.getMonth(4));
+        assertEquals(1, modulo.getDay(1));
     }
 }
