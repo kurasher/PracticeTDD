@@ -3,33 +3,33 @@ package modulo;
 public class Modulo {
     private int first2Digits;
     private int last2Digits;
+    private int year;
     private int month;
     private int day;
 
-    public Modulo(){
+    public Modulo(int year, int month, int day){
         first2Digits = 0;
         last2Digits = 0;
-        month = 0;
-        day = 0;
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
-    public int getFirst2Digits(int year){
+    public int getFirst2Digits(){
         first2Digits = year / 100;
         return first2Digits;
     }
 
-    public int getLast2Digits(int year){
+    public int getLast2Digits(){
         last2Digits = year % 100;
         return last2Digits;
     }
 
-    public int getMonth(int month){
-        this.month = month;
+    public int getMonth(){
         return month;
     }
 
-    public int getDay(int day){
-        this.day = day;
+    public int getDay(){
         return day;
     }
 }
