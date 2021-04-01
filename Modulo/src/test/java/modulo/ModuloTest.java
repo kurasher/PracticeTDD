@@ -12,4 +12,11 @@ public class ModuloTest {
         assertEquals(4, modulo.getMonth());
         assertEquals(1, modulo.getDay());
     }
+
+    @Test
+    public void testGetFirstAndLast2Digits(){
+        Modulo modulo = new Modulo(2021, 1, 1);
+        assertEquals(20, modulo.getFirst2Digits());
+        assertEquals(20, modulo.getLast2Digits());
+    }
 }
