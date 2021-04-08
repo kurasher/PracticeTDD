@@ -19,4 +19,10 @@ public class ModuloTest {
         assertEquals(20, modulo.getFirst2Digits());
         assertEquals(20, modulo.getLast2Digits());
     }
+
+    @Test
+    public void testGetMonth(){
+        Modulo modulo = new Modulo(2021, 2, 1);
+        assertEquals(14, modulo.getMonth());
+    }
 }

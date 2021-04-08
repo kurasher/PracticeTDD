@@ -21,12 +21,13 @@ public class Modulo {
     }
 
     public int getLast2Digits(){
-        year = calcYearFromMonth(month);
+        year = calcYearFromMonth();
         last2Digits = year % 100;
         return last2Digits;
     }
 
     public int getMonth(){
+        month = calcMonth();
         return month;
     }
 
@@ -34,11 +35,19 @@ public class Modulo {
         return day;
     }
 
-    private int calcYearFromMonth(int month){
+    private int calcYearFromMonth(){
         if(month == 1 || month == 2){
             return year - 1;
         }else{
             return year;
+        }
+    }
+
+    private int calcMonth(){
+        if(month == 1 || month == 2){
+            return month + 12;
+        }else{
+            return month;
         }
     }
 }
