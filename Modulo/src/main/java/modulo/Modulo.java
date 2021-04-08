@@ -54,11 +54,15 @@ public class Modulo {
     }
 
     public String calcZeller(){
-        first2Digits = getFirst2Digits();
-        last2Digits = getLast2Digits();
+        if(year < 1582){
+            return "西暦は1582年以降を入力してください";
+        }else{
+            first2Digits = getFirst2Digits();
+            last2Digits = getLast2Digits();
 
-        h = (day + (26*(month+1))/10 + last2Digits + last2Digits/4 + first2Digits/4 + 5*first2Digits) % 7;
-        return map.get(h);
+            h = (day + (26*(month+1))/10 + last2Digits + last2Digits/4 + first2Digits/4 + 5*first2Digits) % 7;
+            return map.get(h);
+        }
     }
 
     private int calcYearFromMonth(){

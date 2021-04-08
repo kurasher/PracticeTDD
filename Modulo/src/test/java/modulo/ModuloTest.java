@@ -31,5 +31,10 @@ public class ModuloTest {
         Modulo modulo = new Modulo(2021, 4, 1);
         assertEquals("木", modulo.calcZeller());
     }
-    
+
+    @Test
+    public void testYearLimit(){
+        Modulo modulo = new Modulo(1581, 4, 1);
+        assertEquals("西暦は1582年以降を入力してください", modulo.calcZeller());
+    }
 }
