@@ -25,4 +25,11 @@ public class ModuloTest {
         Modulo modulo = new Modulo(2021, 2, 1);
         assertEquals(14, modulo.getMonth());
     }
+
+    @Test
+    public void testZeller(){
+        Modulo modulo = new Modulo(2021, 4, 1);
+        assertEquals("木", modulo.calcZeller());
+    }
+    
 }
