@@ -10,6 +10,7 @@ public class Modulo {
     private int lastYear;
     private int newYear;
     private int month;
+    private int newMonth;
     private final int JANUARY = 13;
     private final int FEBRUARY = 14;
     private int day;
@@ -24,6 +25,7 @@ public class Modulo {
         this.lastYear = this.year - 1;
         this.newYear = 0;
         this.month = month;
+        this.newMonth = 0;
         this.day = day;
 
         map = new HashMap<>(){
@@ -52,8 +54,13 @@ public class Modulo {
     }
 
     public int getMonth(){
-        month = calcMonth();
-        return month;
+        if(month == 1){
+            return JANUARY;
+        }else if(month == 2){
+            return FEBRUARY;
+        }else{
+            return month;
+        }
     }
 
     public int getDay(){
@@ -66,8 +73,9 @@ public class Modulo {
         }else{
             first2Digits = getFirst2Digits();
             last2Digits = getLast2Digits();
+            newMonth = getMonth();
 
-            h = (day + (26*(month+1))/10 + last2Digits + last2Digits/4 + first2Digits/4 + 5*first2Digits) % 7;
+            h = (day + (26*(newMonth+1))/10 + last2Digits + last2Digits/4 + first2Digits/4 + 5*first2Digits) % 7;
             return map.get(h);
         }
     }
@@ -77,16 +85,6 @@ public class Modulo {
             return lastYear;
         }else{
             return year;
-        }
-    }
-
-    private int calcMonth(){
-        if(month == 1){
-            return JANUARY;
-        }else if(month == 2){
-            return FEBRUARY;
-        }else{
-            return month;
         }
     }
 }
