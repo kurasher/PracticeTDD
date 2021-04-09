@@ -52,4 +52,10 @@ public class ModuloTest {
         Modulo modulo = new Modulo(2021, 1, 30);
         assertEquals("土", modulo.calcZeller());
     }
+
+    @Test
+    public void testZeller3(){
+        Modulo modulo = new Modulo(2000, 7, 1);
+        assertEquals("土", modulo.calcZeller());
+    }
 }
