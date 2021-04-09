@@ -7,16 +7,22 @@ public class Modulo {
     private int first2Digits;
     private int last2Digits;
     private int year;
+    private int lastYear;
+    private int newYear;
     private int month;
+    private final int JANUARY = 13;
+    private final int FEBRUARY = 14;
     private int day;
     private int h;
     private Map<Integer, String> map;
 
-    public Modulo(int year, int month, int day){
-        first2Digits = 0;
-        last2Digits = 0;
-        h = 0;
+    public Modulo(int year, int month, int day) {
+        this.first2Digits = 0;
+        this.last2Digits = 0;
+        this.h = 0;
         this.year = year;
+        this.lastYear = this.year - 1;
+        this.newYear = 0;
         this.month = month;
         this.day = day;
 
@@ -34,13 +40,14 @@ public class Modulo {
     }
 
     public int getFirst2Digits(){
-        first2Digits = year / 100;
+        newYear = calcYearFromMonth();
+        first2Digits = newYear / 100;
         return first2Digits;
     }
 
     public int getLast2Digits(){
-        year = calcYearFromMonth();
-        last2Digits = year % 100;
+        newYear = calcYearFromMonth();
+        last2Digits = newYear % 100;
         return last2Digits;
     }
 
@@ -67,15 +74,17 @@ public class Modulo {
 
     private int calcYearFromMonth(){
         if(month == 1 || month == 2){
-            return year - 1;
+            return lastYear;
         }else{
             return year;
         }
     }
 
     private int calcMonth(){
-        if(month == 1 || month == 2){
-            return month + 12;
+        if(month == 1){
+            return JANUARY;
+        }else if(month == 2){
+            return FEBRUARY;
         }else{
             return month;
         }
