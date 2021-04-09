@@ -58,4 +58,10 @@ public class ModuloTest {
         Modulo modulo = new Modulo(2000, 7, 1);
         assertEquals("土", modulo.calcZeller());
     }
+
+    @Test
+    public void testZeller4(){
+        Modulo modulo = new Modulo(2000, 2, 1);
+        assertEquals("火", modulo.calcZeller());
+    }
 }
